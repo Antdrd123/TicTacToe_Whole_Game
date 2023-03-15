@@ -8,11 +8,6 @@ namespace TicTacToe_Whole_Game
 {
     internal class PlayerInput
     {
-        // provjera tko je na redu(x ili o)- brojač ( brojač MORA biti u program.cs jer se u metodi stalno vraća na 0)
-        // provjera je li netko pobjedio
-        // ponoviti proces nakon što je ispunjeno 1 polje
-        // završiti proces ako su sva polja popunjena
-        
         public static void Introduce()
         {
             Console.WriteLine("Hi, you are going to play TicTacToe today. Let's see who is going to win - X or O!");
@@ -22,7 +17,7 @@ namespace TicTacToe_Whole_Game
             while(true)
             {
                 
-                Console.WriteLine("Select field numbered from 1 to 9.");
+                Console.WriteLine("INPUT: ");
                 string input = Console.ReadLine();
                 Console.Clear();
                 if (int.TryParse(input, out int inputNum))

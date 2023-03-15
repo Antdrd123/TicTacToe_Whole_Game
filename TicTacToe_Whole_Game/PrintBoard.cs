@@ -8,6 +8,7 @@ namespace TicTacToe_Whole_Game
 {
     internal class PrintBoard
     {
+
         public string[,] Board { get; set; }
         public static string[,] PrintsBoard(string[,] board)
         {

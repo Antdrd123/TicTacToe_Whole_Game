@@ -17,30 +17,39 @@ namespace TicTacToe_Whole_Game
 
             };
             PrintBoard board = new PrintBoard();
-            board.Board = board1; // zašto se ne može direktno inicijalizirati??
+            board.Board = board1;
             
-            // Kako napraviti da se ne inicijalizira svaki put vrijednost ploče, a da ona nije u program.csu( Možda sa private prop srediti aplikaciju?)
             int counter = 1;
-            //PrintBoard.PrintsBoard(board1);
+            
             PlayerInput.Introduce();
             Console.WriteLine();
 
             while(counter <= 9)
             {
+                if(counter %2 != 0)
+                {
+                    Console.WriteLine("Player 1, select field numbered from 1 to 9.");
+                }
+                else
+                {
+                    Console.WriteLine("Player 2, select field numbered from 1 to 9.");
+
+                }
                 PrintBoard.PrintsBoard(board1);
-                //ChoiceCheck.CheckIfFilled(PlayerInput.UserPreference(PlayerInput.InputField()), PrintBoard.Board());
+                
                 ChoiceCheck.Choice(PlayerInput.UserPreference(PlayerInput.InputField()), board1, counter);
                 counter++;
 
-                if (CheckerClass.Checker(board1) == false && counter == 10)
-                {
-                    Console.WriteLine("It is a draw!");
-                }
-                else if(CheckerClass.Checker(board1) == true)
+                if (CheckerClass.Checker(board1) == true)
                 {
                     counter = 11;
                 }
+                else if (CheckerClass.Checker(board1) == false && counter == 10)
+                {
+                    Console.WriteLine("It is a draw!");
+                }
             }
+            PrintBoard.PrintsBoard(board1);
             Console.WriteLine("Thanks for playing!");
 
             Console.ReadKey();
